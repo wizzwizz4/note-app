@@ -11,7 +11,9 @@
 		</style>
 	</head>
 	<body>
-		<iframe id="content" frameborder="0" src="javascript:void(0);">Loading...</iframe>
+		<iframe id="content" frameborder="0" src="javascript:void(0);">
+			Loading... If this page hangs, consider whether your browser supports JavaScript and iframes.
+		</iframe>
 		<script>
 			window.loadContent = function(url) {
 				var content = window.getElementById("content");
@@ -26,7 +28,7 @@
 				request.send();
 				content.document.write(request.responseText);
 			};
-			loadContent("");
+			loadContent("https://raw.githubusercontent.com/wizzwizz4/note-app/master/start.html");
 		</script>
 	</body>
 </html>
