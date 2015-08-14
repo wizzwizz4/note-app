@@ -11,6 +11,22 @@
 		</style>
 	</head>
 	<body>
-		<iframe id="content" frameborder="0" src="javascript:void(0);"></iframe>
+		<iframe id="content" frameborder="0" src="javascript:void(0);">Loading...</iframe>
+		<script>
+			window.loadContent = function(url) {
+				var content = window.getElementById("content");
+				content.document.open();
+				content.document.write("");
+				if (window.XMLHttpRequest) {
+					var request = new XMLHttpRequest();
+				} else {
+					var request = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				request.open("GET", url, false);
+				request.send();
+				content.document.write(request.responseText);
+			};
+			loadContent("");
+		</script>
 	</body>
 </html>
