@@ -17,6 +17,7 @@
 		<script>
 			window.loadContent = function(url) {
 				var content = window.getElementById("content");
+				content = content.contentWindow || content.contentDocument;
 				content.document.open();
 				content.document.write("");
 				if (window.XMLHttpRequest) {
