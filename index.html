@@ -11,11 +11,11 @@
 		</style>
 	</head>
 	<body>
-		<iframe id="content" frameborder="0" src="">
-			Loading... If this page hangs, consider whether your browser supports JavaScript and/or iframes and/or AJAX.
+		<iframe id="content" frameborder="0" src="javascript:void()">
+			Ah. Your browser doesn't support iframes. They are required for this app to work properly.
 		</iframe>
 		<script>
-			window.loadContent = function(url) {
+			/*window.loadContent = function(url) {
 				var content = window.getElementById("content");
 				content = content.contentWindow || content.contentDocument;
 				content.document.open();
@@ -28,7 +28,10 @@
 				request.open("GET", url, false);
 				request.send();
 				content.document.write(request.responseText);
-			};
+			};*/
+			window.loadContent = function(url) {
+				window.getElementById("content").src = url;
+			}
 			loadContent("https://raw.githubusercontent.com/wizzwizz4/note-app/master/start.html");
 		</script>
 	</body>
